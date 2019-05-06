@@ -31,8 +31,8 @@ npm start
 cd ./backend
 nodemon server
 ```
-`yarn start` will run the app server and display the front end<br>
-`nodemon server/server` will run `server.js` which handles the endpoint for database actions (insert, update, etc) via its own router.
+`npm start` will run the app server and display the front end<br>
+`nodemon server` will run `server.js` which handles the endpoint for database actions (insert, update, etc) via its own router.
 
 ## Database Configuration
 The MongoDB server is not provided as part of this package, you will need to run a server instance and create the `cbv-docs` database.
