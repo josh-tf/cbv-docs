@@ -35,7 +35,7 @@ nodemon server
 `nodemon server` will run `server.js` which handles the endpoint for database actions (insert, update, etc) via its own router.
 
 ## Deploy to Heroku
-Deployment to Heroku is easy, the toolbelt is required. Start with `heroku login` and then run the below commands to set up two remote directories:
+Deployment to Heroku is easy, the tool belt is required. Start with `heroku login` and then run the below commands to set up two remote directories:
 ```bash
 # add a remote repo for the frontend
 heroku git:remote -a cbv-docs
@@ -60,9 +60,9 @@ npm run-script publishheroku
 Thats it!
 
 ## Database Configuration
-The MongoDB server is not provided as part of this package, you will need to run a server instance and create the `cbv-docs` database.
+The MongoDB server is not provided as part of the development install, you will need to run a server instance and create the database.
 
-If you are running on a non standard port you can edit this in `backend\server.js` at the top of the file. If its there it will use the `MONGODB_URI` envvar provided by Heroku (remember to add a MongoDB add-on) otherwise you can define your local server here:
+If you are running on a non standard port you can edit this in `backend\server.js` at the top of the file. If you are deploying to Heroku then the server will use the `MONGODB_URI` envvar (just remember to add a MongoDB add-on) otherwise you can define your local server here:
 ```javascript
 const DBString = process.env.MONGODB_URI || 'mongodb://localhost:27017/Docs';
 ```
