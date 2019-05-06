@@ -26,7 +26,7 @@ export default class DocsView extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://cbv-docs-backend.herokuapp.com/docs/docs/slug/" +
+        "https://cbv-docs-backend.herokuapp.com/docs/slug/" +
           this.props.match.params.slug
       )
       .then(response => {
