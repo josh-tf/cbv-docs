@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4000;
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const DBString = process.env.MONGODB_URI;
+const DBString = process.env.MONGODB_URI || 'mongodb://localhost:27017/Docs';
 
 // include our database module
 let Docs = require("./docs.model");

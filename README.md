@@ -22,7 +22,7 @@ Details of the current full-stack can be found below, components may change or b
 ![](https://i.imgur.com/QWG5K3P.jpg) ![](https://i.imgur.com/8k0NJQN.jpg)
 
 
-## Installation / Running
+## Installation / Running Locally
 
 Clone this repository then run the following commands:
 ```bash
@@ -34,14 +34,37 @@ nodemon server
 `npm start` will run the app server and display the front end<br>
 `nodemon server` will run `server.js` which handles the endpoint for database actions (insert, update, etc) via its own router.
 
+## Deploy to Heroku
+Deployment to Heroku is easy, the toolbelt is required. Start with `heroku login` and then run the below commands to set up two remote directories:
+```bash
+# add a remote repo for the frontend
+heroku git:remote -a cbv-docs
+git remote rename heroku heroku-cbv-docs
+
+# add a remote repo for the backend
+heroku git:remote -a cbv-docs-backend
+git remote rename heroku heroku-cbv-docs-backend
+```
+
+The `package.json` files have preset scripts for deploying to Heroku, to deploy simply run:
+
+```bash
+# publish the frontend to Heroku
+cd ./frontend/
+npm run-script publishheroku
+
+# publish the backend to Heroku
+cd ./backend/
+npm run-script publishheroku
+```
+Thats it!
+
 ## Database Configuration
 The MongoDB server is not provided as part of this package, you will need to run a server instance and create the `cbv-docs` database.
 
-If you are running on a non standard port you can edit this in `backend\docs.model.js`. At some point this will be handled as part of the build.
+If you are running on a non standard port you can edit this in `backend\server.js` at the top of the file. If its there it will use the `MONGODB_URI` envvar provided by Heroku (remember to add a MongoDB add-on) otherwise you can define your local server here:
 ```javascript
-module.exports  = {
-db: 'mongodb://localhost:27017/Docs'
-}
+const DBString = process.env.MONGODB_URI || 'mongodb://localhost:27017/Docs';
 ```
 
 ## To-do / Project Pipeline
