@@ -1,9 +1,8 @@
 # CBV Docs
-
+[![Hosted on Heroku](https://img.shields.io/badge/Hosted%20by-Heroku-blueviolet.svg)](https://cbv-docs.herokuapp.com)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/josh-tf/cbv-docs/graphs/commit-activity)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/josh-tf/cbv-docs.svg)](https://github.com/josh-tf/cbv-docs/pulls/)
 [![GitHub issues](https://img.shields.io/github/issues/josh-tf/cbv-docs.svg)](https://GitHub.com/josh-tf/cbv-docs/issues/)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![IST license](https://img.shields.io/badge/License-IST-blue.svg)](https://lbesson.mit-license.org/)
 [![GitHub commits](https://img.shields.io/github/commit-activity/y/josh-tf/cbv-docs.svg)](https://github.com/josh-tf/cbv-docs/commit/)
 
 **cbv-docs** is a simple web application for publishing online process guides at [Computerbank Victoria Inc.](http://computerbank.org.au).
