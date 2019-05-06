@@ -143,7 +143,7 @@ export default class DocsEdit extends Component {
           <div className="form-group">
             <label>Contents</label> <br /> <br />
             <Editor
-              editor_state={editor_state}
+              editorState={editor_state}
               editorClassName="DraftEditor"
               oneditor_stateChange={this.oneditor_stateChange}
             />
