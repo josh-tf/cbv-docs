@@ -5,9 +5,9 @@
 [![IST license](https://img.shields.io/badge/License-IST-blue.svg)](https://lbesson.mit-license.org/)
 [![GitHub commits](https://img.shields.io/github/commit-activity/y/josh-tf/cbv-docs.svg)](https://github.com/josh-tf/cbv-docs/commit/)
 
-**cbv-docs** is a simple web application for publishing online process guides at [Computerbank Victoria Inc.](http://computerbank.org.au).
+**cbv-docs** is a simple web application for publishing online process guides at [Computerbank Victoria Inc](http://computerbank.org.au).
 
-The goal of the project is to create an easy to use/manage document system with possible future expansion with other volunteer related features (rosters, chat, file sharing etc).
+The goal of the project is to create an easy to use/manage document system with possible future expansion with other volunteer related features (rosters, chat, file sharing etc). Check out the [live demo](https://cbv-docs.herokuapp.com).
 
 ## Stack
 
