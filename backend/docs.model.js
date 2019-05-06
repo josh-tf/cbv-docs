@@ -16,4 +16,4 @@ let Docs = new Schema({
   //}
 });
 
-module.exports = mongoose.model("heroku_zfhjfjf0", Docs);
+module.exports = mongoose.model("docs", Docs);
