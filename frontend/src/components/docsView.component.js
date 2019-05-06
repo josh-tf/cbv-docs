@@ -59,7 +59,7 @@ export default class DocsView extends Component {
 
         <div className="doc-view">
           <Editor
-            editor_state={editor_state}
+            editorState={editor_state}
             toolbarHidden={true}
             readOnly={true}
             editorClassName="DraftEditor"
