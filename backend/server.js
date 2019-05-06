@@ -61,11 +61,11 @@ docsRoutes.route("/slug/:slug").get(function(req, res) {
 docsRoutes.route("/update/:id").post(function(req, res) {
   Docs.findById(req.params.id, function(err, docs) {
     if (!docs) res.status(404).send("data is not found");
-    else docs.doc_title = req.body.doc_title;
-    docs.doc_contents = req.body.doc_contents;
-    docs.doc_slug = req.body.doc_slug;
-    docs.doc_last_edited = "";
-
+    else
+      docs.doc_title = req.body.doc_title;
+      docs.doc_contents = req.body.doc_contents;
+      docs.doc_slug = req.body.doc_slug;
+      docs.doc_last_edited = "";
     docs
       .save()
       .then(docs => {
