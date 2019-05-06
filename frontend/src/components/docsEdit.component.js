@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import DocumentTitle from "react-document-title";
 
-import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
+import { editor_state, convertToRaw, convertFromRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 
 import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -20,7 +20,7 @@ export default class DocsEdit extends Component {
     this.state = {
       doc_title: "",
       doc_contents: "",
-      editorState: "",
+      editor_state: "",
       doc_slug: "",
       doc_last_edited: ""
     };
@@ -32,11 +32,11 @@ export default class DocsEdit extends Component {
     });
   }
 
-  onEditorStateChange: Function = editorState => {
+  oneditor_stateChange: Function = editor_state => {
     this.setState({
-      editorState: editorState,
+      editor_state: editor_state,
       doc_contents: JSON.stringify(
-        convertToRaw(editorState.getCurrentContent())
+        convertToRaw(editor_state.getCurrentContent())
       )
     });
     console.log(this.state.doc_contents);
@@ -94,8 +94,8 @@ export default class DocsEdit extends Component {
 
         this.setState({
           doc_title: response.data.doc_title,
-          //editorState: stateFromHTML(response.data.doc_contents),
-          editorState: EditorState.createWithContent(contentState),
+          //editor_state: stateFromHTML(response.data.doc_contents),
+          editor_state: editor_state.createWithContent(contentState),
           doc_slug: response.data.doc_slug,
           doc_last_edited: response.data.doc_last_edited
         });
@@ -106,7 +106,7 @@ export default class DocsEdit extends Component {
   }
 
   render() {
-    const { editorState } = this.state;
+    const { editor_state } = this.state;
     return (
       <div>
         <DocumentTitle title="Computerbank Docs: Edit Document" />
@@ -143,9 +143,9 @@ export default class DocsEdit extends Component {
           <div className="form-group">
             <label>Contents</label> <br /> <br />
             <Editor
-              editorState={editorState}
+              editor_state={editor_state}
               editorClassName="DraftEditor"
-              onEditorStateChange={this.onEditorStateChange}
+              oneditor_stateChange={this.oneditor_stateChange}
             />
           </div>
 

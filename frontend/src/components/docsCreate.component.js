@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DocumentTitle from "react-document-title";
-import { EditorState, convertToRaw } from "draft-js";
+import { editor_state, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
@@ -17,7 +17,7 @@ export default class DocsCreate extends Component {
     this.state = {
       doc_title: "",
       doc_contents: "",
-      editorState: EditorState.createEmpty(),
+      editor_state: editor_state.createEmpty(),
       doc_slug: "",
       doc_last_edited: ""
     };
@@ -30,13 +30,13 @@ export default class DocsCreate extends Component {
     });
   }
 
-  onEditorStateChange: Function = editorState => {
-    console.log(editorState);
-    //console.log(convertToRaw(editorState.getCurrentContent()))
+  oneditor_stateChange: Function = editor_state => {
+    console.log(editor_state);
+    //console.log(convertToRaw(editor_state.getCurrentContent()))
     this.setState({
-      editorState: editorState,
+      editor_state: editor_state,
       doc_contents: JSON.stringify(
-        convertToRaw(editorState.getCurrentContent())
+        convertToRaw(editor_state.getCurrentContent())
       )
     });
   };
@@ -78,7 +78,7 @@ export default class DocsCreate extends Component {
     this.setState({
       doc_title: "",
       doc_contents: "",
-      editorState: EditorState.createEmpty(),
+      editor_state: editor_state.createEmpty(),
       doc_slug: "",
       doc_last_edited: ""
     });
@@ -87,7 +87,7 @@ export default class DocsCreate extends Component {
   }
 
   render() {
-    const { editorState } = this.state;
+    const { editor_state } = this.state;
     return (
       <div style={{ marginTop: 10 }}>
         <DocumentTitle title="Computerbank Docs: Add new Document" />
@@ -125,9 +125,9 @@ export default class DocsCreate extends Component {
           <div className="form-group">
             <label>Contents</label> <br /> <br />
             <Editor
-              editorState={editorState}
+              editor_state={editor_state}
               editorClassName="DraftEditor"
-              onEditorStateChange={this.onEditorStateChange}
+              oneditor_stateChange={this.oneditor_stateChange}
             />
           </div>
 
