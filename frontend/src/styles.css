@@ -1,0 +1,12 @@
+/* Styles for our editor */
+
+.DraftEditor {
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #f1f1f1;
+  background: white;
+  -moz-user-select: none;
+}
+.doc-view {
+  margin-top: 15px;
+}

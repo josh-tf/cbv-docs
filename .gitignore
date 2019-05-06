@@ -1,0 +1,5 @@
+# dont push templates to version control
+/templates
+
+/frontend/node_modules
+/backend/node_modules
