@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import DocumentTitle from "react-document-title";
 
-import { editor_state, convertToRaw, convertFromRaw } from "draft-js";
+import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 
 import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -32,11 +32,11 @@ export default class DocsEdit extends Component {
     });
   }
 
-  oneditor_stateChange: Function = editor_state => {
+  onEditorStateChange: Function = editorState => {
     this.setState({
-      editor_state: editor_state,
+      editor_state: editorState,
       doc_contents: JSON.stringify(
-        convertToRaw(editor_state.getCurrentContent())
+        convertToRaw(editorState.getCurrentContent())
       )
     });
     console.log(this.state.doc_contents);
@@ -94,8 +94,7 @@ export default class DocsEdit extends Component {
 
         this.setState({
           doc_title: response.data.doc_title,
-          //editor_state: stateFromHTML(response.data.doc_contents),
-          editor_state: editor_state.createWithContent(contentState),
+          editor_state: EditorState.createWithContent(contentState),
           doc_slug: response.data.doc_slug,
           doc_last_edited: response.data.doc_last_edited
         });
@@ -145,7 +144,7 @@ export default class DocsEdit extends Component {
             <Editor
               editorState={editor_state}
               editorClassName="DraftEditor"
-              oneditor_stateChange={this.oneditor_stateChange}
+              onEditorStateChange={this.onEditorStateChange}
             />
           </div>
 

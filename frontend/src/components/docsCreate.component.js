@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DocumentTitle from "react-document-title";
-import { editor_state, convertToRaw } from "draft-js";
+import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-
 export default class DocsCreate extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +16,7 @@ export default class DocsCreate extends Component {
     this.state = {
       doc_title: "",
       doc_contents: "",
-      editor_state: editor_state.createEmpty(),
+      editor_state: EditorState.createEmpty(),
       doc_slug: "",
       doc_last_edited: ""
     };
@@ -30,13 +29,13 @@ export default class DocsCreate extends Component {
     });
   }
 
-  oneditor_stateChange: Function = editor_state => {
-    console.log(editor_state);
-    //console.log(convertToRaw(editor_state.getCurrentContent()))
+  onEditorStateChange: Function = editorState => {
+    console.log(editorState);
+    //console.log(convertToRaw(editorState.getCurrentContent()))
     this.setState({
-      editor_state: editor_state,
+      editor_state: editorState,
       doc_contents: JSON.stringify(
-        convertToRaw(editor_state.getCurrentContent())
+        convertToRaw(editorState.getCurrentContent())
       )
     });
   };
@@ -78,7 +77,7 @@ export default class DocsCreate extends Component {
     this.setState({
       doc_title: "",
       doc_contents: "",
-      editor_state: editor_state.createEmpty(),
+      editor_state: EditorState.createEmpty(),
       doc_slug: "",
       doc_last_edited: ""
     });
@@ -127,7 +126,7 @@ export default class DocsCreate extends Component {
             <Editor
               editorState={editor_state}
               editorClassName="DraftEditor"
-              oneditor_stateChange={this.oneditor_stateChange}
+              onEditorStateChange={this.onEditorStateChange}
             />
           </div>
 

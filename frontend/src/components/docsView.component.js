@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import DocumentTitle from "react-document-title";
 
 //edtior
-import { editor_state, convertFromRaw } from "draft-js";
+import { EditorState, convertFromRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 
 import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -37,7 +37,7 @@ export default class DocsView extends Component {
         this.setState({
           _id: response.data._id,
           doc_title: response.data.doc_title,
-          editor_state: editor_state.createWithContent(contentState),
+          editor_state: EditorState.createWithContent(contentState),
           doc_slug: response.data.doc_slug,
           doc_last_edited: response.data.doc_last_edited
         });
@@ -63,7 +63,7 @@ export default class DocsView extends Component {
             toolbarHidden={true}
             readOnly={true}
             editorClassName="DraftEditor"
-            oneditor_stateChange={this.oneditor_stateChange}
+            onEditorStateChange={this.onEditorStateChange}
           />
         </div>
 
