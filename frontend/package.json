@@ -1,13 +1,22 @@
 {
-  "name": "cbv-docs",
-  "version": "0.1.0",
+  "name": "cbv-docs-frontend",
+  "version": "1.0.0",
+  "author": "Josh Bowden (josh.tf)",
+  "license": "ISC",
+  "description": "frontend for cbv-docs documentation system",
+  "keywords": ["cbv-docs","Documentation","Docs","Computerbank"],
   "engines": {
     "node": "10.15.3"
   },
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^8.0.0",
     "draft-js": "^0.10.5",
     "html-to-draftjs": "^1.4.0",
     "react": "^16.8.6",
@@ -18,12 +27,6 @@
     "react-router": "^3.2.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
