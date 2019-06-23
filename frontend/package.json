@@ -17,7 +17,7 @@
     "publishheroku": "cd ../ && git subtree push --prefix frontend heroku-cbv-docs master"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "draft-js": "^0.10.5",
     "html-to-draftjs": "^1.4.0",
     "react": "^16.8.6",
