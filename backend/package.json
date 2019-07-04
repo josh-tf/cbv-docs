@@ -4,7 +4,12 @@
   "author": "Josh Bowden (josh.tf)",
   "license": "ISC",
   "description": "backend for cbv-docs documentation system",
-  "keywords": ["cbv-docs","Documentation","Docs","Computerbank"],
+  "keywords": [
+    "cbv-docs",
+    "Documentation",
+    "Docs",
+    "Computerbank"
+  ],
   "engines": {
     "node": "10.15.3"
   },
@@ -12,12 +17,16 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publishheroku": "cd ../ && git subtree push --prefix backend heroku-cbv-docs-backend master"
+    "publishheroku": "cd ../ && git subtree push --prefix backend heroku-cbv-docs-backend master",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongoose": "^5.5.5"
-  }
+    "mongoose": "^5.5.5",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
