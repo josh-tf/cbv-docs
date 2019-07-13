@@ -1,76 +1,27 @@
-# CBV Docs
-[![Hosted on Heroku](https://img.shields.io/badge/Hosted%20by-Heroku-blueviolet.svg)](https://cbv-docs.herokuapp.com)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/josh-tf/cbv-docs/graphs/commit-activity)
-[![GitHub issues](https://img.shields.io/github/issues/josh-tf/cbv-docs.svg)](https://GitHub.com/josh-tf/cbv-docs/issues/)
-[![IST license](https://img.shields.io/badge/License-IST-blue.svg)](https://lbesson.mit-license.org/)
-[![GitHub commits](https://img.shields.io/github/commit-activity/y/josh-tf/cbv-docs.svg)](https://github.com/josh-tf/cbv-docs/commit/)
+# cbv-docs
 
-**cbv-docs** is a simple web application for publishing online process guides at [Computerbank Victoria Inc](http://computerbank.org.au).
+A small web app for publishing volunteer process guides at a nonprofit.
 
-The goal of the project is to create an easy to use/manage document system with possible future expansion with other volunteer related features (rosters, chat, file sharing etc). Check out the [live demo](https://cbv-docs.herokuapp.com).
+> Archived. No longer maintained.
+
+Guides are written in a rich-text editor in the React front end and stored as HTML in MongoDB. Each guide has a title, contents and a slug, and can be created, viewed by slug, edited and deleted. The front end talks to a separate Express API under `/docs`.
 
 ## Stack
 
-Details of the current full-stack can be found below, components may change or be added in the future as additional requirements are included in the project pipeline.
+- `frontend/`: React (Create React App), React Router, `react-draft-wysiwyg`, axios
+- `backend/`: Node.js (both `package.json` files pin Node 10.15.3), Express, Mongoose
+- MongoDB
 
-**Front end -** [React](https://reactjs.org/) <br>
-**Back end -** [Node.js](https://nodejs.org/) + [Express.js](https://expressjs.com/) <br>
-**Database -** [MongoDB](https://www.mongodb.com/) <br>
+## Develop
 
-![](https://i.imgur.com/CylWiH5.jpg) ![](https://i.imgur.com/EGWlnxq.jpg) <br>
-![](https://i.imgur.com/QWG5K3P.jpg) ![](https://i.imgur.com/8k0NJQN.jpg)
-
-
-## Installation / Running Locally
-
-Clone this repository then run the following commands:
-```bash
-cd ./frontend
-npm start
-cd ./backend
-nodemon server
-```
-`npm start` will run the app server and display the front end<br>
-`nodemon server` will run `server.js` which handles the endpoint for database actions (insert, update, etc) via its own router.
-
-## Deploy to Heroku
-Deployment to Heroku is easy, the tool belt is required. Start with `heroku login` and then run the below commands to set up two remote directories:
-```bash
-# add a remote repo for the frontend
-heroku git:remote -a cbv-docs
-git remote rename heroku heroku-cbv-docs
-
-# add a remote repo for the backend
-heroku git:remote -a cbv-docs-backend
-git remote rename heroku heroku-cbv-docs-backend
+```sh
+# needs a MongoDB server; defaults to mongodb://localhost:27017/Docs
+cd backend && npm install && npm start     # API on port 4000
+cd frontend && npm install && npm start    # React dev server
 ```
 
-The `package.json` files have preset scripts for deploying to Heroku, to deploy simply run:
+The API reads `MONGODB_URI` and `PORT` from the environment when they are set. The front end calls the old Heroku-hosted API at a hard-coded address in `frontend/src/App.js` and `frontend/src/components/`; to run it locally, point those calls at `http://localhost:4000/docs`.
 
-```bash
-# publish the frontend to Heroku
-cd ./frontend/
-npm run-script publishheroku
+## License
 
-# publish the backend to Heroku
-cd ./backend/
-npm run-script publishheroku
-```
-Thats it!
-
-## Database Configuration
-The MongoDB server is not provided as part of the development install, you will need to run a server instance and create the database.
-
-If you are running on a non standard port you can edit this in `backend\server.js` at the top of the file. If you are deploying to Heroku then the server will use the `MONGODB_URI` envvar (just remember to add a MongoDB add-on) otherwise you can define your local server here:
-```javascript
-const DBString = process.env.MONGODB_URI || 'mongodb://localhost:27017/Docs';
-```
-
-## To-do / Project Pipeline
-
-This will be an on-going project and will also function as a tool to learn the various components of the stack, you can follow progress on [Trello](https://trello.com/b/eW9I62NV/cbv-docs). Suggestions are welcome, please open an issue to discuss or contact me via the email under my user page.
-
-## Authors & Licence
-
-- Currently developed with ❤️ by [josh-tf](https://github.com/josh-tf)
-- This project is created under the [MIT](https://choosealicense.com/licenses/mit/) licence
+[MIT](LICENSE)
